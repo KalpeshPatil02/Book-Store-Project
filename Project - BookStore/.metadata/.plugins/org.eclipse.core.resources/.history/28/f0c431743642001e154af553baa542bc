@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Thank You For Purchase From Booky-Binders</title>
+<%@include file="components/allcss.jsp"%>
+</head>
+<body>
+	<%@ include file="components/navbar.jsp"%>
+<hr>
+
+<div class="container text-center mt-3">
+<i class="fas fa-check-circle fa-5x text-success></i>
+
+</div>
+
+
+	<%@ include file="components/footer.jsp"%>
+</body>
+</html>

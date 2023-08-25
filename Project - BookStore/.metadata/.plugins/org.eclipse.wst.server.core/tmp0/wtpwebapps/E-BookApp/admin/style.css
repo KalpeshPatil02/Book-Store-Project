@@ -1,0 +1,10 @@
+.nvcustom
+{
+	background-color: #ff80ab;
+}
+.navbar .nav-item:hover .nav-link
+{
+	background-color: white;
+	color: blue;
+	border-radius: 10px;
+}

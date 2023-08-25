@@ -1,0 +1,87 @@
+<%@page import="com.entity.Book_order"%>
+<%@page import="java.util.List"%>
+<%@page import="com.DB.DBConnect"%>
+<%@page import="com.DAO.BookDAOImpl"%>
+<%@page import="com.DAO.BookOrderImpl"%>
+<%@page import="com.entity.User"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@page isELIgnored="false"%>
+
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Order's : Booky-Binders</title>
+
+<%@ include file="components/allcss.jsp"%>
+
+
+</head>
+<body>
+
+	
+	<c:if test="${empty userobj }">
+	<c:redirect url="login.jsp" />
+	</c:if>
+	
+	
+
+	<%@ include file="components/navbar.jsp"%> <hr>
+	
+	
+	<div class="container"> 
+	
+	<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Order Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">BookName</th>
+      <th scope="col">Author</th>
+      <th scope="col">Price</th>
+      <th scope="col">Payment Type</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  <%
+  
+  User u =(User)session.getAttribute("userobj");
+  BookOrderImpl dao = new BookOrderImpl(DBConnect.getConnection());
+  List<Book_order> blist =dao.getbook(u.getEmail());
+  
+  for(Book_order b : blist)
+  {
+  
+  %>
+  
+   <tr>
+      <th scope="row"><%=b.getOrderId() %></th>
+      <td><%=b.getUsername() %></td>
+      <td><%=b.getBookName() %></td>
+      <td>@<%= b.getAuthor() %></td>
+        <td><%= b.getPrice() %></td>
+      <td>@<%= b.getPayment() %></td>
+    </tr>
+  
+  
+  
+  <%} %>
+  
+  </tbody>
+</table>
+	
+	</div>
+	
+	
+	
+	
+		<%@ include file="components/footer.jsp"%> <hr>
+
+</body>
+</html>

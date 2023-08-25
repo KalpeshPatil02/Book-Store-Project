@@ -1,0 +1,76 @@
+package com.user.servlet;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.DAO.BookOrderImpl;
+import com.DAO.CartDAOImpl;
+import com.DB.DBConnect;
+import com.entity.Book_order;
+import com.entity.cart;
+
+
+@WebServlet("/order")
+public class orderServlet extends HttpServlet{
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
+		
+		try {
+			
+			int id = Integer.parseInt(req.getParameter("id"));
+			
+			String name = req.getParameter("name");
+			String email = req.getParameter("mail");
+			String phone = req.getParameter("phone");
+			String address = req.getParameter("add");
+			String landmark = req.getParameter("landmark");
+			String city = req.getParameter("city");
+			String state = req.getParameter("state");
+			String pin = req.getParameter("zip");
+			String payment = req.getParameter("payment");
+			
+			String fullAdd = address+","+landmark+","+city+","+state+","+pin;
+
+			
+			CartDAOImpl dao = new CartDAOImpl(DBConnect.getConnection());
+			
+			List<cart> blist =  dao.getBookByUser(id);
+			
+			BookOrderImpl dao2 = new BookOrderImpl(DBConnect.getConnection());
+			int i = dao2.getOrderNo();
+			
+			Book_order o = new Book_order();			
+			
+			
+		    for(cart c :blist)
+		    {
+		    	o.setOrderId(fullAdd);
+		    	o.setUsername(name);
+		    }
+			
+			
+			
+			if("noselect".equals(payment))
+			{
+				resp.sendRedirect("checkout.jsp");
+			}else {
+				
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();		}
+		
+		
+	}
+
+}

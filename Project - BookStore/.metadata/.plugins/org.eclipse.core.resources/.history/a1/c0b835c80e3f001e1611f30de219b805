@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@page isELIgnored="false"%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User Support : Booky Binder's</title>
+<%@ include file="components/allcss.jsp"%>
+</head>
+<body>
+<%@ include file="components/navbar.jsp"%> <hr>
+
+
+<div class="d flex justify-centent-center align-item-center">
+
+
+ <i class="fas fa-phone-square-alt fa-3x"></i>
+
+</div>
+
+
+
+
+<%@ include file="components/footer.jsp"%>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+package com.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.List;
+
+import com.entity.Book_order;
+
+public class BookOrderImpl implements BookOrderDao {
+
+	private Connection conn;
+
+	@Override
+	public int getOrderNo() {
+
+		int i = 1;
+
+		try {
+
+			String query = "select * from book-order";
+			PreparedStatement ps = conn.prepareStatement(query);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				i++;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+
+	}
+
+//	--------------------------------------------------------------------------------------------------------------------------------
+
+	@Override
+	public boolean saveOrder(List<Book_order> blist) {
+
+		try {
+			
+			
+			String query = "insert into book-order(id, order_id, user_name, email, address, phone, book_name, author, price) values (?,?,?,?,?,?,?,?,?)";
+			conn.setAutoCommit(false);
+			PreparedStatement ps = conn.prepareStatement(query);
+			
+			for(Book_order b:blist) {
+				ps.setString(1, b.getOrderId());
+				ps.setString(2, b.getUsername());
+				ps.setString(3, b.getEmail());
+				ps.setString(4, b.getFullAdd());
+				ps.setString(5, b.getPhone());
+				ps.setString(6, b.get);
+				ps.setString(7, b);
+				ps.setString(8, b);
+				ps.setString(9, b);
+				
+				
+			}
+			
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
+}

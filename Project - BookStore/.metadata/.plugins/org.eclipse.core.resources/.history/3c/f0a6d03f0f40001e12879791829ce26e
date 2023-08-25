@@ -1,0 +1,54 @@
+package com.user.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.DAO.UserDaoImpl;
+import com.DB.DBConnect;
+import com.entity.User;
+
+
+@WebServlet("/update_profile")
+public class UpdateProfileServlet extends HttpServlet {
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
+		try {
+			
+			int id = Integer.parseInt(req.getParameter("id"));
+			
+			String name = req.getParameter("fname");
+			String email = req.getParameter("email");
+			String phone = req.getParameter("phone");
+			String password = req.getParameter("password");
+			
+			User us = new User();
+			
+			UserDaoImpl dao = new UserDaoImpl(DBConnect.getConnection());
+			
+			
+			boolean f =dao.checkPassword(password, id);
+			
+			
+			if(f) {
+				
+				dao.updateProfile()
+				
+			}else {
+				
+			}
+			
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+	}
+
+	
+}

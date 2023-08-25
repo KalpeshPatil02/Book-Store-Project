@@ -1,0 +1,14 @@
+package com.DAO;
+
+import com.entity.cart;
+
+public interface CartDaoImpl  {
+
+	
+
+	
+	
+	
+	
+	
+}

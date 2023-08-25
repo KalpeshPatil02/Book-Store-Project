@@ -1,0 +1,47 @@
+package com.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.entity.cart;
+
+public class CartDAOImpl  implements CartDao{
+	
+	
+	private Connection conn;
+	
+	public CartDAOImpl(Connection conn) {
+		this.conn=conn;
+	}
+	
+	
+	
+
+	@Override
+	public boolean addCart(cart c) {
+
+		boolean f=false;
+		
+		try {
+			
+			String query = "insert into cart(cid, bid, uid, bookName, author, price, totalPrice) values (?,?,?,?,?,?,?)";
+		    PreparedStatement ps = conn.prepareStatement(query);
+		    
+		   ps.setInt(1, c.getCid());
+		   ps.setInt(2, c.getBid());
+		   ps.setInt(3, c.getUserId());
+		   ps.setString(4, c.getBookName());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return f;
+	}
+
+	
+	
+	
+	
+}

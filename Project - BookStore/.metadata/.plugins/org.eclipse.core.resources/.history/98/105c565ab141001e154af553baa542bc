@@ -1,0 +1,101 @@
+package com.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.entity.Book_order;
+
+public class BookOrderImpl implements BookOrderDao {
+
+	private Connection conn;
+
+	public BookOrderImpl(Connection connection) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int getOrderNo() {
+
+		int i = 1;
+
+		try {
+
+			String query = "select * from book-order";
+			PreparedStatement ps = conn.prepareStatement(query);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				i++;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+
+	}
+
+//	--------------------------------------------------------------------------------------------------------------------------------
+
+	// Inside the BookOrderImpl class
+
+	public boolean saveOrder(List<Book_order> blist) {
+	    boolean f = false;
+	    Connection conn = null;
+	    PreparedStatement ps = null;
+
+	    try {
+	        conn = DBConnect.getConnection();
+	        conn.setAutoCommit(false);
+
+	        String query = "INSERT INTO book_order (order_id, user_name, email, address, phone, book_name, author, price, payment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	        ps = conn.prepareStatement(query);
+
+	        for (Book_order b : blist) {
+	            ps.setString(1, b.getOrderId());
+	            ps.setString(2, b.getUsername());
+	            ps.setString(3, b.getEmail());
+	            ps.setString(4, b.getFullAdd());
+	            ps.setString(5, b.getPhone());
+	            ps.setString(6, b.getBookName());
+	            ps.setString(7, b.getAuthor());
+	            ps.setString(8, b.getPrice());
+	            ps.setString(9, b.getPayment());
+	            ps.addBatch();
+	        }
+
+	        int[] count = ps.executeBatch();
+	        conn.commit();
+	        f = true;
+	    } catch (SQLException e) {
+	        // Handle SQLException and rollback transaction
+	        try {
+	            if (conn != null) {
+	                conn.rollback();
+	            }
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (ps != null) {
+	                ps.close();
+	            }
+	            if (conn != null) {
+	                conn.close();
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    return f;
+	}
+
+
+}

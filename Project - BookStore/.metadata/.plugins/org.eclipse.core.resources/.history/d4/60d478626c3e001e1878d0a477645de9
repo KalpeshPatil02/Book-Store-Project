@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@page isELIgnored="false"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Address : Booky-Binder's</title>
+<%@ include file="components/allcss.jsp"%>
+</head>
+<body>
+<%@ include file="components/navbar.jsp"%> <hr>
+
+
+
+
+
+<%@ include file="components/footer.jsp"%>
+</body>
+</html>

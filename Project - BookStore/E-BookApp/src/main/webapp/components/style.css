@@ -1,0 +1,14 @@
+.nvcustom1
+{
+	background-color: #ff80ab;
+}
+.navbar .nav-item:hover .nav-link
+{
+	background-color: white;
+	color: blue;
+	border-radius: 10px;
+}
+
+/* the css for toast  */
+
+/* End Of Toast Css */

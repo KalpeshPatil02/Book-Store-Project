@@ -1,0 +1,55 @@
+package com.user.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.DAO.BookDAOImpl;
+import com.DB.DBConnect;
+import com.entity.BookDtls;
+import com.entity.cart;
+
+
+@WebServlet("/cart")
+public class CartServlet extends HttpServlet{
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+		
+		
+		try {
+			
+			
+			int bid=Integer.parseInt(req.getParameter("bid"));
+			int uid=Integer.parseInt(req.getParameter("uid"));
+			
+			BookDAOImpl dao= new BookDAOImpl(DBConnect.getConnection());
+			
+			BookDtls b = dao.getBookById(bid);
+			
+			cart c = new cart();
+			c.setBid(bid);
+			c.setUserId(uid);
+			c.setBookName(b.getBookName());
+			c.setAuthor(b.getAuthor());
+			c.setPrice(b.getPrice());
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,14 @@
+package com.DAO;
+
+import com.entity.BookDtls;
+import com.entity.cart;
+
+public interface CartDao {
+	
+	public boolean addCart(cart  c);
+	
+	public BookDtls getBookByUser(int userId);
+	
+	
+
+}

@@ -1,0 +1,40 @@
+package com.user.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/order")
+public class orderServlet extends HttpServlet{
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
+		
+		try {
+			
+			
+			String name = req.getParameter("");
+			String email = req.getParameter("");
+			String phone = req.getParameter("");
+			String address = req.getParameter("");
+			String landmark = req.getParameter("");
+			String city = req.getParameter("");
+			String state = req.getParameter("");
+			String pin = req.getParameter("");
+			String payment = req.getParameter("");
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();		}
+		
+		
+	}
+
+}

@@ -1,0 +1,106 @@
+package com.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.entity.BookDtls;
+import com.entity.cart;
+import com.mysql.cj.protocol.Resultset;
+
+public class CartDAOImpl  implements CartDao{
+	
+	
+	private Connection conn;
+	
+	public CartDAOImpl(Connection conn) {
+		this.conn=conn;
+	}
+	
+	
+	
+
+	@Override
+	public boolean addCart(cart c)  {
+	    boolean f = false;
+
+	    try {
+	        String query = "INSERT INTO cart(bid, uid, bookName, author, price, totalPrice) values (?, ?, ?, ?, ?, ?)";
+	        PreparedStatement ps = conn.prepareStatement(query);
+
+	        
+	        ps.setInt(1, c.getBid());         // bid
+	        ps.setInt(2, c.getUserId());      // uid
+	        ps.setString(3, c.getBookName()); // bookName
+	        ps.setString(4, c.getAuthor());   // author
+	        ps.setDouble(5, c.getPrice());    // price
+	        ps.setDouble(6, c.getTotalPrice());// totalPrice
+	        
+	        
+	        int i = ps.executeUpdate();
+
+	        if (i == 1) {
+	            f = true;
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return f;
+	}
+
+
+	
+	
+//	===========================================================================================================================================
+	
+	
+
+
+	@Override
+	public cart getBookByUser(int userId) {
+		
+		cart b = null;
+		
+	    double totalPrice;
+		
+		try {
+			
+			String query = "select * from cart where uid=?";
+			
+			PreparedStatement ps = conn.prepareStatement(query);
+			
+			ps.setInt(1, userId);
+			
+			
+			ResultSet rs= ps.executeQuery();
+			
+			while (rs.next()) {
+				
+				b = new cart();
+				
+				b.setBookId(rs.getInt(1));
+				
+			}
+			
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+}

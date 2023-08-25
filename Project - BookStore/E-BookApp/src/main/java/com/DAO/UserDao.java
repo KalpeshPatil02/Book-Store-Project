@@ -1,0 +1,22 @@
+package com.DAO;
+
+import com.entity.User;
+
+public interface UserDao {
+	
+	public static boolean userRegister(User us) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public User login(String email,String password);
+	
+	public boolean checkPassword(String ps,int id);
+	
+	public boolean updateProfile(User us);
+	
+	public boolean checkUser(String email);
+	
+
+
+}

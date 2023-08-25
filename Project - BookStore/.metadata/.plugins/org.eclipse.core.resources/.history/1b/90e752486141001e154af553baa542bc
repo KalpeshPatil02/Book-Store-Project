@@ -1,0 +1,151 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@page isELIgnored="false"%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Settings : Booky Binder's</title>
+<%@include file="components/allcss.jsp"%>
+
+
+<style type="text/css">
+
+.k{
+text-decoration: none;
+
+}
+.k:hover {
+	text-decoration: none;
+	
+}
+.x1
+{
+color: black;
+}
+.x1:hover
+{
+color: grey;
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+<c:if test="${empty userobj}">
+<c:redirect url="login.jsp"></c:redirect>
+</c:if>
+
+
+
+	<%@ include file="components/navbar.jsp"%>
+
+
+	<div class="container">
+	
+	<c:if test="${not empty userobj}"></c:if>
+	
+		<h3 class="text-center">Hello, ${userobj.name }</h3>
+		<div class="row p-5">
+			<div class="col-md-4">
+
+				<a href="sellbooks.jsp" class="k">
+				<div class="card">
+				<div class="card-body text-center text-success">	
+				<i class="fas fa-book fa-3x mb-4"></i> <i class="fas fa-plus fa-2x"></i>
+							<h3 class="text-center x1">Sell Old Books</h3>
+							<p> -</p>
+						</div></div>
+				</a>
+			</div>
+			<div class="col-md-4">
+
+				<a href="old_book.jsp" class="k">
+				<div class="card">
+				<div class="card-body text-center text-danger">	
+				<i class="fas fa-book fa-3x mb-4"></i>
+							<h3 class="text-center x1">Book Base</h3>
+							<p> -</p>
+						</div></div>
+				</a>
+			</div>
+			
+			
+			
+			<div class="col-md-4 ">
+
+				<a href="editProfile.jsp" class="k">
+				<div class="card">
+				<div class="card-body text-center">	
+				<i class="fas fa-id-card fa-3x mb-4"></i>
+							<h3 class="text-center x1">Login & Security (Edit Profile)</h3>
+						</div></div>
+				</a>
+			</div>
+			
+			
+			
+			<div class="col-md-4 mt-5">
+
+				<a href="userAddress.jsp" class="k">
+				<div class="card">
+				<div class="card-body text-center text-warning">	
+				<i class="fas fa-map-marker-alt fa-3x mb-4 "></i>
+							<h3 class="text-center x1">My Address</h3>
+							<p> -</p>
+						</div></div>
+				</a>
+			</div>
+			
+			
+			
+			<div class="col-md-4 mt-5">
+
+				<a href="order.jsp" class="k">
+				<div class="card text-danger">
+				<div class="card-body text-center">	
+				<i class="fas fa-box-open fa-3x mb-4"></i>
+							<h3 class="text-center x1">My Orders</h3>
+							<p>(track Your Order)</p>
+						</div></div>
+				</a>
+			</div>
+			
+			
+			
+			<div class="col-md-4 mt-5">
+
+				<a href="helpLine.jsp" class="k">
+				<div class="card">
+				<div class="card-body text-center">	
+				<i class="fas fa-headset  fa-3x mb-4"></i>
+							<h3 class="text-center x1">Help Center</h3>
+							<p>(24x7 Service)</p>
+						</div></div>
+				</a>
+			</div>
+			
+			
+		</div>
+		
+		
+		
+		
+
+	</div>
+
+
+	<%@ include file="components/footer.jsp"%>
+
+
+
+</body>
+</html>

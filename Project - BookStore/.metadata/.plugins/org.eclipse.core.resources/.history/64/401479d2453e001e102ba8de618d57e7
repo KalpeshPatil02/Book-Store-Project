@@ -1,0 +1,13 @@
+package com.DAO;
+
+import com.entity.cart;
+
+public interface CartDao {
+	
+	public boolean addCart(cart  c);
+	
+	public cart getBookByUser(int userId);
+	
+	
+
+}

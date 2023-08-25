@@ -1,0 +1,8 @@
+package com.DAO;
+
+public interface BookOrderDao {
+	
+	public int getOrderNo();
+	
+
+}
