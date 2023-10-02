@@ -4,11 +4,8 @@
 
 # E-Commerce Project
 
-[![Contributors](https://img.shields.io/github/contributors/your_username/e-commerce-project.svg)](https://github.com/your_username/e-commerce-project/graphs/contributors)
-[![Forks](https://img.shields.io/github/forks/your_username/e-commerce-project.svg)](https://github.com/your_username/e-commerce-project/network/members)
-[![Stargazers](https://img.shields.io/github/stars/your_username/e-commerce-project.svg)](https://github.com/your_username/e-commerce-project/stargazers)
-[![Issues](https://img.shields.io/github/issues/your_username/e-commerce-project.svg)](https://github.com/your_username/e-commerce-project/issues)
-[![License](https://img.shields.io/github/license/your_username/e-commerce-project.svg)](https://github.com/your_username/e-commerce-project/blob/main/LICENSE)
+[![Contributors](https://img.shields.io/github/contributors/your_username/e-commerce-project.svg)]
+[![License](https://img.shields.io/github/license/your_username/e-commerce-project.svg)][(https://github.com/your_username/e-commerce-project/blob/main/LICENSE)](https://github.com/KalpeshPatil02/Book-Store-Project/)
 
 </div>
 
