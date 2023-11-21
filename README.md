@@ -1,9 +1,5 @@
 # Book-Store-Project
-<div align="center">
-  <img src="/path/to/project-logo.png" alt="Project Logo" width="200">
 
-
-</div>
 
 ## About The Project
 
