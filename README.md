@@ -11,10 +11,9 @@ Welcome to the E-Commerce Project! This is a comprehensive e-commerce applicatio
 - Browse and search a diverse selection of products.
 - Add items to your cart and modify quantities.
 - View detailed product information and images.
-- Apply discount codes during checkout.
 - Secure payment processing with advanced encryption.
 - User-friendly interface featuring responsive design with Bootstrap.
-- Interactive elements powered by JavaScript for an engaging shopping journey.
+- Interactive elements powered by Java for an engaging shopping journey.
 
 ## Built With
 
