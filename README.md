@@ -21,4 +21,8 @@ Welcome to the E-Commerce Project! This is a comprehensive e-commerce applicatio
 - Java
 - Bootstrap
 - JavaScript
+- Html
+- Css
+- Java ( Jstl , JSP , Apache Server , Maven Project , JDBC )
+- MySql
 
